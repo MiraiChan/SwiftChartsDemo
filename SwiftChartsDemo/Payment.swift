@@ -21,5 +21,14 @@ extension Payment {
     "Jupiter": 140.0,
     "Atlas": 45.0,
   ]
+  
+  static let samples: [Payment] = (0..<90).map { day in
+    let (client, rate) = hourlyRates.randomElement()!
+    return Payment(
+      date: Calendar.current.date(byAdding: .day, value:-day, to: .now)!,
+      client: client,
+      amount: rate * Double.random(in: 1...4)
+    )
+  }
 }
 

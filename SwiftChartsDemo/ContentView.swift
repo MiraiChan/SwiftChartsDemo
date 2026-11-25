@@ -8,12 +8,14 @@
 import SwiftUI
 
 struct ContentView: View {
+  private let payments = Payment.samples
+  
   var body: some View {
     NavigationStack {
       ScrollView {
         VStack(spacing: 24) {
           GroupBox("Per client") {
-            ClientChartBar()
+            ClientChartBar(payments: payments)
           }
         }
         .padding()

@@ -9,16 +9,18 @@ import SwiftUI
 import Charts
 
 struct ClientChartBar: View {
+  let payments: [Payment]
+  
   var body: some View {
-    Chart(Payment.hourlyRates.sorted(by: <), id: \.key) { rate in
+    Chart(payments) { payment in
       BarMark(
-        x: .value("Client", rate.key),
-        y: .value("Rate", rate.value)
+        x: .value("Client", payment.client),
+        y: .value("Rate", payment.amount)
       )
     }
     .frame(height: 220)
   }
 }
 #Preview {
-  ClientChartBar()
+  ClientChartBar(payments: Payment.samples)
 }
