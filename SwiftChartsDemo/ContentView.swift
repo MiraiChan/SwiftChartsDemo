@@ -8,17 +8,21 @@
 import SwiftUI
 
 struct ContentView: View {
-    var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+  var body: some View {
+    NavigationStack {
+      ScrollView {
+        VStack(spacing: 24) {
+          GroupBox("Per client") {
+            ClientChartBar()
+          }
         }
         .padding()
+      }
     }
+    .navigationTitle("ChartLab")
+  }
 }
 
 #Preview {
-    ContentView()
+  ContentView()
 }
