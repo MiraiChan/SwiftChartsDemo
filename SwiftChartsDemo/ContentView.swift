@@ -17,6 +17,9 @@ struct ContentView: View {
           GroupBox("Per client") {
             ClientChartBar(payments: payments)
           }
+          GroupBox("Daily earnings") {
+            EarningsTrendsChart(payments: payments)
+          }
         }
         .padding()
       }
